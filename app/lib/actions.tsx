@@ -79,7 +79,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
     return { message: 'Database Error: Failed to Create Invoice.' };
   }
 
-  revalidatePath('/dashboard/invoices');
+  // revalidatePath('/dashboard/invoices');
+  revalidatePath('/dashboard');
   redirect('/dashboard/invoices');
 }
 
@@ -122,6 +123,7 @@ export async function deleteInvoice(id: string) {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
+    revalidatePath('/dashboard');
     return { message: 'Deleted Invoice.' };
   } catch (error) {
     return { message: 'Database Error: Failed to Delete invoice.' };
