@@ -3,6 +3,12 @@ import { CustomersTableType } from '@/app/lib/definitions';
 import { fetchFilteredCustomers } from '@/app/lib/data';
 import { Suspense } from 'react';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Customers',
+};
+
 export default async function Page({
   searchParams,
 }: {
